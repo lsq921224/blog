@@ -7,12 +7,20 @@ jobs:
   build:
     docker:
       # specify the version you desire here
-      - image: circleci/ruby:2.4.1-node-browsers
+      - image: circleci/ruby:2.5.0-node-browsers
+        environment:
+          PGHOST: 127.0.0.1
+          PGUSER: blog
 
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
       # documented at https://circleci.com/docs/2.0/circleci-images/
       # - image: circleci/postgres:9.4
+      - image: postgres:11.2
+        environment:
+          POSTGRES_USER: blog
+          POSTGRES_DB: blog_test
+          POSTGRES_PASSWORD: ""
 
     working_directory: ~/repo
 
@@ -27,6 +35,13 @@ jobs:
             - v1-dependencies-
 
       - run:
+          name: Configure Bundler
+          command: |
+            echo 'export BUNDLER_VERSION=$(cat Gemfile.lock | tail -1 | tr -d " ")' >> $BASH_ENV
+            source $BASH_ENV
+            gem install bundler
+
+      - run:
           name: install dependencies
           command: |
             bundle install --jobs=4 --retry=3 --path vendor/bundle
@@ -35,6 +50,9 @@ jobs:
           paths:
             - ./vendor/bundle
           key: v1-dependencies-{{ checksum "Gemfile.lock" }}
+
+      # Wait for DB
+      - run: dockerize -wait tcp://localhost:5432 -timeout 1m
 
       # Database setup
       - run: bundle exec rake db:create
