@@ -42,7 +42,7 @@ hooks:
     - location: script/deploy/start-application.sh
       timeout: 300
       runas: root
-  # ValidateService:
-  #   - location: script/deploy/validate-application.sh
-  #     timeout: 120
-  #     runas: root
+  ValidateService:
+    - location: script/deploy/validate-application.sh
+      timeout: 60
+      runas: services
