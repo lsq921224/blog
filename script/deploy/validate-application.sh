@@ -1,7 +1,7 @@
 #!/bin/bash
 
 function check_status {
-  response=$(curl --max-time 15 --write-out %{http_code} --silent --output /dev/null http://localhost:3000/health_check)
+  response=$(curl --max-time 15 --write-out %{http_code} --silent --output /dev/null http://localhost:80/health_check)
 
   if [[ "$response" -eq "200" ]]; then
     echo "deployment valid"
