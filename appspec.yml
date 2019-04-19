@@ -1,0 +1,48 @@
+version: 0.0
+os: linux
+files:
+  - source: /
+    destination: /home/services/blog
+permissions:
+  - object: /home/services
+    pattern: blog
+    owner: services
+    group: services
+    mode: 755
+    type:
+      - directory
+  - object: /home/services/blog
+    pattern: "**"
+    owner: services
+    group: services
+    mode: 644
+    type:
+      - file
+  - object: /home/services/blog
+    pattern: "**"
+    owner: services
+    group: services
+    mode: 755
+    type:
+      - directory
+hooks:
+  ApplicationStop:
+    - location: script/deploy/stop-application.sh
+      timeout: 60
+      runas: root
+  BeforeInstall:
+    - location: script/deploy/before-install.sh
+      timeout: 300
+      runas: services
+  AfterInstall:
+    - location: script/deploy/after-install.sh
+      timeout: 1000
+      runas: services
+  ApplicationStart:
+    - location: script/deploy/start-application.sh
+      timeout: 300
+      runas: root
+  # ValidateService:
+  #   - location: script/deploy/validate-application.sh
+  #     timeout: 120
+  #     runas: root
