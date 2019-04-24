@@ -61,11 +61,6 @@
     title: 'Default',
     usage: 'Use for your content',
     page_parts: ['text']
-  }, {
-    name: 'demo',
-    title: 'Demo',
-    description: 'Contains examples of every page part',
-    page_parts: ['line', 'text', 'image', 'image_collection', 'attachment', 'attachment_collection', 'structure']
   }]
 
   theme.custom_pages = [{
@@ -73,11 +68,6 @@
     title:          'Homepage',
     deletable:      false,
     view_template:  'homepage'
-  }, {
-    name:           'demo',
-    title:          'Demo',
-    deletable:      true,
-    view_template:  'demo'
   }]
 
   theme.plugins = ['reviews']
