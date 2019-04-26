@@ -1,24 +1,12 @@
-# README
+https://shengqianliu.me/how-this-website-is-built
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Webserver: Nginx
+Appserver: Puma
+Web Framework: Ruby on Rails
+Gem: Spina CMS
+DB: Postgres
+CI: CircleCI
+CD: AWS Codedeploy
+Server: Ubuntu 16.04 AWS EC2 Instance
+Storage: AWS S3
+DNS: Cloudflare
