@@ -19,5 +19,5 @@ Spina.configure do |config|
   # config.max_page_depth = 5
 
   # Base css color for Spina
-  config.primary_color = '#6865b4'
+  config.primary_color = '#2984b5'
 end
