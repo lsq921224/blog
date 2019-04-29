@@ -6,4 +6,10 @@ body {
   .nav {
     margin-bottom: 1rem;
   }
+
+  .container img {
+    max-width: 100%;
+    display:block;
+    height: auto;
+  }
 }
