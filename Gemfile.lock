@@ -176,6 +176,7 @@ GEM
       i18n (>= 0.6.10, < 2)
       request_store (~> 1.0)
     multi_json (1.13.1)
+    mustermann (1.0.3)
     nio4r (2.3.1)
     nokogiri (1.10.2)
       mini_portile2 (~> 2.4.0)
@@ -185,6 +186,8 @@ GEM
     public_suffix (3.0.3)
     puma (3.12.1)
     rack (2.0.6)
+    rack-protection (2.0.5)
+      rack
     rack-rewrite (1.5.1)
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
@@ -242,6 +245,7 @@ GEM
     rspec_junit_formatter (0.4.1)
       rspec-core (>= 2, < 4, != 2.12.0)
     ruby_dep (1.5.0)
+    ruby_http_client (3.3.0)
     ruby_parser (3.13.1)
       sexp_processor (~> 4.9)
     rubyzip (1.2.2)
@@ -268,7 +272,18 @@ GEM
     selenium-webdriver (3.141.0)
       childprocess (~> 0.5)
       rubyzip (~> 1.2, >= 1.2.2)
+    sendgrid-actionmailer (2.3.0)
+      mail (~> 2.5)
+      sendgrid-ruby (~> 5.3.0)
+    sendgrid-ruby (5.3.0)
+      ruby_http_client (~> 3.3.0)
+      sinatra (>= 1.4.7, < 3)
     sexp_processor (4.12.0)
+    sinatra (2.0.5)
+      mustermann (~> 1.0)
+      rack (~> 2.0)
+      rack-protection (= 2.0.5)
+      tilt (~> 2.0)
     spina (1.0.3)
       ancestry
       bcrypt
@@ -343,6 +358,7 @@ DEPENDENCIES
   rspec_junit_formatter
   sass-rails (~> 5.0)
   selenium-webdriver
+  sendgrid-actionmailer
   spina
   spring
   spring-watcher-listen (~> 2.0.0)
