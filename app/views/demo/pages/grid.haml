@@ -1,0 +1,8 @@
+%h1= current_page.menu_title
+!= content(:text)
+.row
+  - content(:structure).structure_items.each do |item|
+    .col-sm
+      %h6=item.content(:title)
+      %p!= item.content(:description)
+!= content(:text_2)
