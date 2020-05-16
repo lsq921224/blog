@@ -32,11 +32,11 @@ hooks:
       runas: root
   BeforeInstall:
     - location: script/deploy/before-install.sh
-      timeout: 300
+      timeout: 60
       runas: services
   AfterInstall:
     - location: script/deploy/after-install.sh
-      timeout: 1000
+      timeout: 5000
       runas: services
   ApplicationStart:
     - location: script/deploy/start-application.sh
